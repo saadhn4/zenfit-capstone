@@ -37,8 +37,8 @@ router.get("/get/:id", async (req, res) => {
 
 router.get("/getall", async (req, res) => {
   try {
-    let repos = await adminModel.find({});
-    res.status(200).json({ repos });
+    let admins = await adminModel.find({});
+    res.status(200).json({ admins });
   } catch (error) {
     console.log(error);
     res.status(500).json({ msg: error });
