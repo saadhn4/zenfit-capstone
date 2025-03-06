@@ -1,5 +1,6 @@
 import express from "express";
 import config from "config";
+import cors from "cors";
 import "./utils/dbConnect.js";
 import userRouter from "./controllers/users/index.js";
 import adminRouter from "./controllers/admins/index.js";
@@ -9,6 +10,12 @@ import authMiddleware from "./middlewares/auth.js";
 const app = express();
 const PORT = config.get("PORT");
 const URL = config.get("URL");
+
+app.use(
+  cors({
+    origin: ["http://locahost:5173", "http://127.0.0.1:5173"],
+  })
+); //before app.use(express.json())
 
 app.use(express.json());
 
